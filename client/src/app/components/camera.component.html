@@ -1,0 +1,21 @@
+<div>
+  <!-- the width, height of the camera. trigger is an attribute. we bind it to a function inside the component -->
+  <!-- when imageCapture is trigger, we call a snapshot function -->
+  <webcam
+    [width]="width"
+    [height]="height"
+    [trigger]="trigger"
+    (imageCapture)="snapshot($event)"
+  >
+  </webcam>
+</div>
+<!--  this is a button to take the photo, the event 'click' is to take a photo, we call it snap -->
+<div>
+  <button type="button" (click)="snap()">Snap</button>
+</div>
+
+<!--  this section shows the mulitple photos that are being taken -->
+<!-- the src is binded to the p property-->
+<div *ngFor="let p of pics">
+  <img [src]="p" width="100" />
+</div>
